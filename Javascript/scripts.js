@@ -42,12 +42,21 @@ function convertValues() {
             currency: "BTC",
         }).format(inputCurrency / bitcoinToday);
     }
+if (currencySelect.value == "BRL") {
+        currencyValueToConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+        }).format(inputCurrency);
+    }
 
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
+    
+     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
     }).format(inputCurrency);
 }
+
+
 function changeCurrency() {
     const currencyName = document.getElementById("currency-name");
     const currencyImage = document.querySelector(".currency-image");
@@ -70,6 +79,10 @@ function changeCurrency() {
     if (currencySelect.value == "BRL") {
         currencyName.innerHTML = "Real Brasileiro"
         currencyImage.src = "./assets/brasil 2.png"
+    }
+     if (currencySelect.value == "BTC") {
+        currencyName.innerHTML = "Bitcoin"
+        currencyImage.src = "./assets/bitcoin 1.png"
     }
     convertValues()
 }
