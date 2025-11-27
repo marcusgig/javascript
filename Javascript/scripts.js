@@ -67,6 +67,10 @@ function changeCurrency() {
         currencyName.innerHTML = "Libra"
         currencyImage.src = "./assets/Libra.png"
     }
+    if (currencySelect.value == "BRL") {
+        currencyName.innerHTML = "Real Brasileiro"
+        currencyImage.src = "./assets/brasil 2.png"
+    }
     convertValues()
 }
 
