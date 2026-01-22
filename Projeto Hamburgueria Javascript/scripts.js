@@ -1,9 +1,12 @@
 const list = document.querySelector("ul")
 const buttonShowAll = document.querySelector(".show-all");
-let myLi = "";
+const buttonMapAll = document.querySelector(".map-all");
 
-function showAll() {
-    menuOptions.forEach(product => {
+
+function showAll(productsArray) {
+    let myLi = "";
+
+    productsArray.forEach(product => {
         myLi = myLi + `
         <li>
             <img src="${product.src}" >
@@ -15,6 +18,14 @@ function showAll() {
     })
 }
 
+function mapAllItems() {
+    const newPrices = menuOptions.map((product) => ({
+        ...product,
+        price: (product.price * 0.9).toFixed(2)
+    }))
+    showAll(newPrices)
 
+}
 
-buttonShowAll.addEventListener("click", showAll)
+buttonShowAll.addEventListener("click", () => showAll(menuOptions))
+buttonMapAll.addEventListener("click", mapAllItems)
